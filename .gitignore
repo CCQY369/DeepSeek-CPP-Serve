@@ -1,0 +1,16 @@
+# 排除配置文件（保护你的 API Key）
+config.json
+
+# 排除编译生成的二进制文件
+x64/
+Debug/
+Release/
+*.obj
+*.exe
+*.pdb
+*.log
+
+# 排除 Visual Studio 的本地缓存
+.vs/
+*.user
+*.suo
