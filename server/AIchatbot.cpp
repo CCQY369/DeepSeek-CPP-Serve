@@ -43,6 +43,16 @@ AIchatbot::AIchatbot()
 		json j;
 		config_file >> j;
 		api_key = j.value("api_key", "");
+		std::string url = j.value("api_url", model_wb);
+		if (url.find("http") == std::string::npos) {
+			std::cerr << "[错误] config.json 中的 api_url 格式不正确，必须包含https://" << std::endl;
+		}
+		else {
+			model_wb = url;
+		}
+		if (!model_wb.empty() && model_wb.back() == '/') {
+			model_wb.pop_back();
+		}
 	}
 	std::cout << "Key loaded: " << api_key << std::endl;
 	headers = {
